@@ -1,29 +1,39 @@
-import Button from "react-bootstrap/Button";
+import { Container } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
+import { Row, Col } from "react-bootstrap";
+
+import InputField from "../../fieldsUI/InputField.jsx";
+import SimpleButton from "../../buttons/SimpleButton.jsx";
 
 function Login() {
     return (
         <>
-            <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
-                </Form.Group>
+            <Container>
+                <Form>
+                    <InputField
+                        fieldId="email"
+                        fieldLabel="Email adress"
+                        fieldType="email"
+                        placeholder="Your e-mail adress"
+                    />
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-            </Form>
+                    <InputField
+                        fieldId="password"
+                        fieldLabel="Password"
+                        fieldType="password"
+                        placeholder="Password"
+                    />
+                    <Row>
+                        <Col>
+                            <SimpleButton
+                                variant="primary"
+                                type="submit"
+                                text="Submit"
+                            />
+                        </Col>
+                    </Row>
+                </Form>
+            </Container>
         </>
     );
 }
