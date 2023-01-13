@@ -1,0 +1,11 @@
+.login-box {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 12rem;
+
+    &__icon {
+        height: 5rem;
+        width: 5rem;
+    }
+}
