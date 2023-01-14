@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": "",
+      "name": "",
+      "surname": "",
+      "email": "",
+      "password": ""
+    },
+    {
+      "name": "Dominika",
+      "id": "s3xcMcb"
+    },
+    {
+      "formRegisterValues": {
+        "name": "Jakub",
+        "surname": "Mazur",
+        "email": "d@d.pl",
+        "password": "ddddd"
+      },
+      "id": "fDCrPwq"
+    },
+    {
+      "formRegisterValues": {
+        "id": null,
+        "name": "Mateusz",
+        "surname": "Marczyk",
+        "email": "m@m.pl",
+        "password": "mm"
+      },
+      "id": "CaDab5e"
+    }
+  ]
+}

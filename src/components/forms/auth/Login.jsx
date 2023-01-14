@@ -8,6 +8,7 @@ import SimpleButton from "../../buttons/SimpleButton.jsx";
 import loginIcon from "../../../images/loginIcon.png";
 
 import "./Login.scss";
+import { Link } from "react-router-dom";
 
 function Login() {
     return (
@@ -39,14 +40,20 @@ function Login() {
                             placeholder="Password"
                         />
                     </Col>
+
                     <Col>
                         <div className="text-center">
                             <SimpleButton
-                                variant="primary"
+                                variant="outline-dark"
                                 type="submit"
-                                text="Submit"
+                                text="Login"
                             />
                         </div>
+                        <Form.Text className="text-muted">
+                            <Link to="/register">
+                                If you don't have account, click and register.
+                            </Link>
+                        </Form.Text>
                     </Col>
                 </Form>
             </Row>

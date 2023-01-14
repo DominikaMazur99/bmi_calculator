@@ -1,13 +1,17 @@
-import { Container } from "react-bootstrap";
-import { Routes, Route } from "react-router-dom";
-import "./App.scss";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Login from "./components/forms/auth/Login";
+
+import "./App.scss";
+import Register from "./components/forms/auth/Register";
 
 function App() {
     return (
-        <Routes>
-            <Route path="/login" element={<Login />} />
-        </Routes>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+            </Routes>
+        </BrowserRouter>
     );
 }
 
