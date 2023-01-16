@@ -8,25 +8,32 @@ import SimpleButton from "../../buttons/SimpleButton.jsx";
 import loginIcon from "../../../images/loginIcon.png";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 function Register() {
-    const [formRegisterValues, setFormRegisterValues] = useState({
-        name: "",
-        surname: "",
-        email: "",
-        password: "",
-    });
+    const [id, setId] = useState("");
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormRegisterValues((prevState) => {
-            return {
-                ...prevState,
-                [name]: value,
-            };
-        });
-    };
-    const { name, surname, email, password } = formRegisterValues;
+    // const [formRegisterValues, setFormRegisterValues] = useState({
+    //     name: "",
+    //     surname: "",
+    //     email: "",
+    //     password: "",
+    // });
+
+    // const handleChange = (event) => {
+    //     const { name, value } = event.target;
+    //     setFormRegisterValues((prevState) => {
+    //         return {
+    //             ...prevState,
+    //             [name]: value,
+    //         };
+    //     });
+    // };
+
+    // const { name, surname, email, password } = formRegisterValues;
     const navigate = useNavigate();
 
     const handleRegister = (e) => {
@@ -35,15 +42,22 @@ function Register() {
         fetch("http://localhost:3001/users", {
             method: "POST",
             body: JSON.stringify({
-                formRegisterValues,
+                id: id,
+                name: name,
+                email: email,
+                password: password,
             }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
             },
-        }).then((res) => {
-            console.log(res);
-            navigate("/login");
-        });
+        })
+            .then(() => {
+                toast.success("Registered successfully.");
+                navigate("/login");
+            })
+            .catch(() => {
+                toast.error("Registered failed.");
+            });
     };
     return (
         <>
@@ -61,26 +75,27 @@ function Register() {
                         </Col>
                         <Col>
                             <InputField
+                                name="id"
+                                fieldId="id"
+                                fieldLabel="Login"
+                                fieldType="text"
+                                placeholder="Your Login"
+                                onChange={(e) => setId(e.target.value)}
+                                value={id}
+                            />
+                        </Col>
+                        <Col>
+                            <InputField
                                 name="name"
                                 fieldId="name"
                                 fieldLabel="Name"
                                 fieldType="text"
                                 placeholder="Your name"
-                                onChange={handleChange}
+                                onChange={(e) => setName(e.target.value)}
                                 value={name}
                             />
                         </Col>
-                        <Col>
-                            <InputField
-                                name="surname"
-                                fieldId="surname"
-                                fieldLabel="Surname"
-                                fieldType="text"
-                                placeholder="Your surname"
-                                onChange={handleChange}
-                                value={surname}
-                            />
-                        </Col>
+
                         <Col>
                             <InputField
                                 name="email"
@@ -88,7 +103,7 @@ function Register() {
                                 fieldLabel="Email adress"
                                 fieldType="email"
                                 placeholder="Your e-mail adress"
-                                onChange={handleChange}
+                                onChange={(e) => setEmail(e.target.value)}
                                 value={email}
                             />
                         </Col>
@@ -99,7 +114,7 @@ function Register() {
                                 fieldLabel="Password"
                                 fieldType="password"
                                 placeholder="Password"
-                                onChange={handleChange}
+                                onChange={(e) => setPassword(e.target.value)}
                                 value={password}
                             />
                         </Col>
