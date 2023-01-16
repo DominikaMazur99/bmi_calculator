@@ -16,33 +16,12 @@ function Login() {
     const [data, setData] = useState([]);
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
-    // const [formLoginValues, setFormLoginValues] = useState({
-    //     email: "",
-    //     password: "",
-    // });
-    // const { email, password } = formLoginValues;
 
     const navigate = useNavigate();
 
-    // const handleChange = (event) => {
-    //     const { name, value } = event.target;
-    //     setFormLoginValues((prevState) => {
-    //         return {
-    //             ...prevState,
-    //             [name]: value,
-    //         };
-    //     });
-    // };
-    // console.log(formLoginValues);
-    // useEffect(() => {
-    //     getDatafromApi();
-    // }, []);
-
-    // async function getDatafromApi() {
-    //     const response = await fetch("http://localhost:3001/users");
-    //     const data = await response.json();
-    //     setData(data.map((el) => el.formRegisterValues));
-    // }
+    useEffect(() => {
+        sessionStorage.clear();
+    }, []);
 
     const LoginToApp = (e) => {
         e.preventDefault();
@@ -61,7 +40,7 @@ function Login() {
                     } else {
                         if (resp.password === password) {
                             console.log("Success");
-                            // sessionStorage.setItem('username',username);
+                            sessionStorage.setItem("login", login);
                             navigate("/");
                         } else {
                             console.log("Please Enter valid credentials");
@@ -80,6 +59,10 @@ function Login() {
             result = false;
             console.log("enter login");
             toast.warning("Please enter your login.");
+        }
+        if (password === "" || password === null) {
+            result = false;
+            toast.warning("Please Enter Password");
         }
         return result;
     };
