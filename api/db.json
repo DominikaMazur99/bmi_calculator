@@ -5,6 +5,18 @@
       "name": "Dominika",
       "email": "d@m.pl",
       "password": "dm"
+    },
+    {
+      "id": "Mateusz",
+      "name": "Marczyk",
+      "email": "m@m.pl",
+      "password": "mm"
+    },
+    {
+      "id": "ala",
+      "name": "Ala",
+      "email": "a@a.pl",
+      "password": "aa"
     }
   ]
 }

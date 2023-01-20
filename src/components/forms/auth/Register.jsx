@@ -16,48 +16,64 @@ function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    // const [formRegisterValues, setFormRegisterValues] = useState({
-    //     name: "",
-    //     surname: "",
-    //     email: "",
-    //     password: "",
-    // });
-
-    // const handleChange = (event) => {
-    //     const { name, value } = event.target;
-    //     setFormRegisterValues((prevState) => {
-    //         return {
-    //             ...prevState,
-    //             [name]: value,
-    //         };
-    //     });
-    // };
-
-    // const { name, surname, email, password } = formRegisterValues;
     const navigate = useNavigate();
+
+    const IsValidate = () => {
+        let isproceed = true;
+        let errormessage = "Please enter the value in ";
+        if (id === null || id === "") {
+            isproceed = false;
+            errormessage += " username";
+        }
+        if (name === null || name === "") {
+            isproceed = false;
+            errormessage += " fullname";
+        }
+        if (password === null || password === "") {
+            isproceed = false;
+            errormessage += " password";
+        }
+        if (email === null || email === "") {
+            isproceed = false;
+            errormessage += " email";
+        }
+
+        if (!isproceed) {
+            toast.warning(errormessage);
+        } else {
+            if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
+            } else {
+                isproceed = false;
+                toast.warning("Please enter the valid email");
+            }
+        }
+        return isproceed;
+    };
 
     const handleRegister = (e) => {
         e.preventDefault();
 
-        fetch("http://localhost:3001/users", {
-            method: "POST",
-            body: JSON.stringify({
-                id: id,
-                name: name,
-                email: email,
-                password: password,
-            }),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8",
-            },
-        })
-            .then(() => {
-                toast.success("Registered successfully.");
-                navigate("/login");
+        if (IsValidate()) {
+            fetch("http://localhost:3001/users", {
+                method: "POST",
+                body: JSON.stringify({
+                    id: id,
+                    name: name,
+                    email: email,
+                    password: password,
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                },
             })
-            .catch(() => {
-                toast.error("Registered failed.");
-            });
+                .then(() => {
+                    toast.success("Registered successfully.");
+                    navigate("/login");
+                })
+                .catch(() => {
+                    toast.error("Registered failed.");
+                });
+        }
     };
     return (
         <>

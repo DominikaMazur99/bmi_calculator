@@ -11,6 +11,7 @@ import loginIcon from "../../../images/loginIcon.png";
 import "./Login.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
     const [data, setData] = useState([]);

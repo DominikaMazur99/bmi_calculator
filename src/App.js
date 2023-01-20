@@ -1,16 +1,16 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Login from "./components/forms/auth/Login";
 
-import "./App.scss";
 import Register from "./components/forms/auth/Register";
 import MainPage from "./components/views/MainPage";
-import { ToastContainer } from "react-bootstrap";
+import { ToastContainer } from "react-toastify";
+import "./App.scss";
 
 function App() {
     return (
         <>
             {" "}
-            <ToastContainer position="top-right"></ToastContainer>
+            <ToastContainer position="top-right" />
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<MainPage />} />
