@@ -5,6 +5,7 @@ import Register from "./components/forms/auth/Register";
 import MainPage from "./components/views/MainPage";
 import { ToastContainer } from "react-toastify";
 import "./App.scss";
+import Calculator from "./components/calculator/Calculator";
 
 function App() {
     return (

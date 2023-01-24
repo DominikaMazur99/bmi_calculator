@@ -28,8 +28,8 @@ function NavbarComponent() {
                     />
                 </Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#features">Calculator</Nav.Link>
+                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link>Profile</Nav.Link>
                 </Nav>
 
                 <Navbar.Collapse className="justify-content-end">

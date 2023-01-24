@@ -9,6 +9,8 @@ function InputField({
     name,
     onChange,
     value,
+    step,
+    min,
 }) {
     return (
         <Form.Group className="mb-3" controlId={fieldId}>
@@ -19,6 +21,8 @@ function InputField({
                 placeholder={placeholder}
                 onChange={onChange}
                 value={value}
+                step={step}
+                min={min}
             />
             {{ text } ? (
                 <Form.Text className="text-muted">{text}</Form.Text>

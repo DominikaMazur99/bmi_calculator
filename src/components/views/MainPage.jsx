@@ -1,10 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
+import Calculator from "../calculator/Calculator";
 import NavbarComponent from "../navbar/NavbarComponent";
 
 function MainPage() {
     return (
         <>
             <NavbarComponent />
+            <Calculator />
         </>
     );
 }
