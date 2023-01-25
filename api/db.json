@@ -1,28 +1,29 @@
 {
-  "users": [
-    {
-      "id": "domi",
-      "name": "Dominika",
-      "email": "d@m.pl",
-      "password": "dm"
-    },
-    {
-      "id": "Mateusz",
-      "name": "Marczyk",
-      "email": "m@m.pl",
-      "password": "mm"
-    },
-    {
-      "id": "ala",
-      "name": "Ala",
-      "email": "a@a.pl",
-      "password": "aa"
-    },
-    {
-      "id": "mati",
-      "name": "Mateusz",
-      "email": "m@m.pl",
-      "password": "mm"
-    }
-  ]
+    "users": [
+        {
+            "id": "domi",
+            "name": "Dominika",
+            "email": "d@m.pl",
+            "password": "dm"
+        },
+        {
+            "id": "Mateusz",
+            "name": "Marczyk",
+            "email": "m@m.pl",
+            "password": "mm"
+        },
+        {
+            "id": "ala",
+            "name": "Ala",
+            "email": "a@a.pl",
+            "password": "aa"
+        },
+        {
+            "id": "mati",
+            "name": "Mateusz",
+            "email": "m@m.pl",
+            "password": "mm"
+        }
+    ],
+    "data": []
 }

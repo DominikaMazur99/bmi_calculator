@@ -13,20 +13,35 @@ import "./Calculator.scss";
 function Calculator() {
     const [height, setHeight] = useState("");
     const [weight, setWeight] = useState("");
-    const bmi = weight / height ** 2;
-    console.log(bmi);
+    const [bmi, setBmi] = useState("");
+    const [message, setMessage] = useState("");
+
+    const Calculate = (e) => {
+        e.preventDefault();
+        const bmiIndex = (weight / height ** 2).toFixed(2);
+        setBmi(bmiIndex);
+        if (bmiIndex < 18.5) {
+            setMessage("You're in the underweight range.");
+        } else if (bmiIndex >= 18.5 && bmiIndex <= 24.9) {
+            setMessage("You're in the healthy weight range.");
+        } else if (bmiIndex > 24.9 && bmiIndex <= 29.9) {
+            setMessage("You're in the overweight range.");
+        } else {
+            setMessage("You're in the obese range.");
+        }
+    };
 
     return (
         <div>
             <Container>
-                <Row xs={2} md={8} className="login-box">
+                <Row xs={2} md={8} className="calculator-box">
                     <Form>
                         <Col>
                             <div className="text-center">
                                 <img
                                     src={bmiIcon}
                                     alt="bmi icon"
-                                    className="bmi__icon"
+                                    className="calculator-box__icon"
                                 />
                             </div>
                             <div className="text-center">
@@ -61,12 +76,19 @@ function Calculator() {
                             <div className="text-center">
                                 <SimpleButton
                                     variant="outline-dark"
-                                    type="submit"
                                     text="Calculate"
+                                    onClick={Calculate}
                                 />
                             </div>
                         </Col>
                     </Form>
+                </Row>
+                <Row>
+                    {bmi && message && (
+                        <div className="text-center">
+                            Your BMI Index is equal {bmi}. {message}{" "}
+                        </div>
+                    )}
                 </Row>
             </Container>
         </div>

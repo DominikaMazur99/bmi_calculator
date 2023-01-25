@@ -1,5 +1,12 @@
-.bmi__icon {
-    height: 6rem;
-    width: 6rem;
-    margin-bottom: 1rem;
+.calculator-box {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 10rem;
+
+    &__icon {
+        height: 6rem;
+        width: 6rem;
+        margin-bottom: 1rem;
+    }
 }
