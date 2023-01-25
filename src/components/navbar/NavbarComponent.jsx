@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useNavigate } from "react-router-dom";
 import navbarIcon from "../../images/navbarIcon.png";
+import logoutIcon from "../../images/logout.png";
 import "./NavbarComponent.scss";
 
 function NavbarComponent() {
@@ -29,11 +30,12 @@ function NavbarComponent() {
                 </Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link>Profile</Nav.Link>
                 </Nav>
 
                 <Navbar.Collapse className="justify-content-end">
-                    <Nav.Link href="/login">Logout</Nav.Link>
+                    <Nav.Link href="/login">
+                        <img src={logoutIcon} className="logout__icon" />
+                    </Nav.Link>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
