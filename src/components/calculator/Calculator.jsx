@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 
-import bmiIcon from "../../images/bmi.png";
+import navbarIcon from "../../images/navbarIcon.png";
 
 import InputField from "../fieldsUI/InputField.jsx";
 import SimpleButton from "../buttons/SimpleButton";
@@ -21,16 +21,26 @@ function Calculator() {
         const bmiIndex = (weight / height ** 2).toFixed(2);
         setBmi(bmiIndex);
         if (bmiIndex < 18.5) {
-            setMessage("You're in the underweight range.");
+            setMessage("Underweight");
         } else if (bmiIndex >= 18.5 && bmiIndex <= 24.9) {
-            setMessage("You're in the healthy weight range.");
+            setMessage("Normal");
         } else if (bmiIndex > 24.9 && bmiIndex <= 29.9) {
-            setMessage("You're in the overweight range.");
+            setMessage("Overweight");
         } else {
-            setMessage("You're in the obese range.");
+            setMessage("Obesity");
         }
     };
 
+    const styles = {
+        color:
+            bmi < 18.5
+                ? "red"
+                : bmi >= 18.5 && bmi <= 24.9
+                ? "green"
+                : bmi > 24.9 && bmi <= 29.9
+                ? "orange"
+                : "red",
+    };
     return (
         <div>
             <Container>
@@ -39,7 +49,7 @@ function Calculator() {
                         <Col>
                             <div className="text-center">
                                 <img
-                                    src={bmiIcon}
+                                    src={navbarIcon}
                                     alt="bmi icon"
                                     className="calculator-box__icon"
                                 />
@@ -85,8 +95,16 @@ function Calculator() {
                 </Row>
                 <Row>
                     {bmi && message && (
-                        <div className="text-center">
-                            Your BMI Index is equal {bmi}. {message}{" "}
+                        <div className="result">
+                            <div
+                                className="text-center fs-1 bmi__result"
+                                style={styles}
+                            >
+                                {bmi}
+                            </div>
+                            <div className="text-center fs-3 message">
+                                <em>{message}</em>
+                            </div>
                         </div>
                     )}
                 </Row>

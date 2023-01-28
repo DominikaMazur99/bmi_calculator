@@ -8,13 +8,13 @@ import SimpleButton from "../../buttons/SimpleButton.jsx";
 
 import loginIcon from "../../../images/loginIcon.png";
 
-import "./Login.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 
+import "./Login.scss";
+
 function Login() {
-    const [data, setData] = useState([]);
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
 
@@ -27,8 +27,6 @@ function Login() {
     const LoginToApp = (e) => {
         e.preventDefault();
         if (validate()) {
-            ///implentation
-            // console.log('proceed');
             fetch("http://localhost:3001/users/" + login)
                 .then((res) => {
                     console.log(res);
