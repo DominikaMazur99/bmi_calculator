@@ -5,4 +5,4 @@
 1. Download a respository on your computer.
 2. Write in terminal "npm install" and click "Enter". This comend install needed packages.
 3. Write in terminal "npm start" to channel app.
-4. Done!s
+4. Done!
